@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta  http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta  http-equiv="description" content="Demonstration page for the use of the alert system." />
+<title>Alerts</title>
+</head>
+<body>
+<div id="container">
+	<div id="alertBanner"></div>
+
+	<div id="weatherMap"></div>
+
+	<div id="weatherSticker">
+	<h4>Aurora, Ohio Weather Sticker</h4>
+	<span style="display: block !important; width: 180px; text-align: center; font-family: sans-serif; font-size: 12px;">
+		<a href="http://www.wunderground.com/cgi-bin/findweather/getForecast?query=zmw:44202.1.99999&bannertypeclick=wu_blueglass" title="Aurora, Ohio Weather Forecast" target="_blank"><img src="http://weathersticker.wunderground.com/weathersticker/cgi-bin/banner/ban/wxBanner?bannertype=wu_blueglass&airportcode=KPOV&ForcedCity=Aurora&ForcedState=OH&zip=44202&language=EN&apiref=b7583f58544ad7f7" alt="Find more about Weather in Aurora, OH" width="160" /></a>
+	</span>
+
+	<!-- Referral URL -->
+	<a href="http://www.wunderground.com/?apiref=b7583f58544ad7f7" 
+		title="Weather Underground" target="_blank">Weather Underground</a>
+	</div>
+</div>
+
+<!--
+Using the Weather Underground API to show updates about warnings for the Cleveland area.
+As well as a simple radar weather map and links to their server weather watch.
+-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="">
+<script type="text/javascript">
+$(document).ready(function(){
+	// Run alert file check on a timer.
+});
+</script>
+</body>
+</html>
+
