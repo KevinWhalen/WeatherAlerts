@@ -1,2 +1,5 @@
 # API key file
 key
+
+# swap files
+*.swp
