@@ -28,6 +28,21 @@ updates with the backend system.
 
 ---
 
+####Use:
+
+The main files of this project can be copied to a webserver directory for a 
+demonstration of use. 
+
+Write access will be needed for info.json. 
+
+The alerts directory should be placed elsewhere and the retrieval script could 
+be run as a scheduled job (ie. with cron) based on prefered accuracy and API 
+subscription. 
+(Or I may write a timer into it, in which case it could be left as an always 
+running job.)
+
+---
+
 Weather Underground
 http://www.wunderground.com/
 Licsense Terms
