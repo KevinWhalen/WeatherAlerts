@@ -1,0 +1,104 @@
+[
+{
+	"response": {
+		"version": "0.1"
+		,"termsofService": "http://www.wunderground.com/weather/api/d/terms.html"
+		,"features": {
+		"alerts": 1
+		}
+	}
+		,"query_zone": "064",
+	"alerts": [
+		{
+		"type": "FIR",
+		"description": "Fire Weather Warning",
+		"date": "7:07 am PDT on July 26, 2013/",
+		"date_epoch": "1374847620",
+		"expires": "12:00 AM MDT on July 27, 2013",
+		"expires_epoch": "1374904800",
+		"message": "\u000A...Red flag warning in effect from 4 PM MDT /3 PM PDT/ this\u000Aafternoon to midnight MDT /11 PM PDT/ tonight for lightning for\u000ABurns blm and Vale blm...which are fire weather zones 636 and\u000A637...\u000A\u000A.Thunderstorms expected to move out of northern California this\u000Aafternoon and move into southeast Oregon. \u000A\u000AThe National Weather Service in Boise has issued a red flag\u000Awarning for lightning...which is in effect from 4 PM MDT /3 PM\u000APDT/ this afternoon to midnight MDT /11 PM PDT/ tonight. \u000A\u000A* Thunderstorms...scattered thunderstorms developing this\u000A afternoon\u000A\u000A* outflow winds...gusts up to 50 mph possible. \u000A\u000APrecautionary/preparedness actions...\u000A\u000AA red flag warning means that critical fire weather conditions\u000Aare either occurring now...or will shortly. A combination of\u000Astrong winds...low relative humidity...and warm temperatures can\u000Acontribute to extreme fire behavior.\u000A\u000A\u000A\u000A\u000A\u000A",
+		"phenomena": "FW",
+		"significance": "W",
+		"ZONES": [
+		{
+		"state":"OR",
+		"ZONE":"061"
+		}
+		,
+		{
+		"state":"OR",
+		"ZONE":"062"
+		}
+		,
+		{
+		"state":"OR",
+		"ZONE":"063"
+		}
+		,
+		{
+		"state":"OR",
+		"ZONE":"064"
+		}
+		],
+		"StormBased": {
+		}
+		}
+	]
+},
+{
+	"response": {
+		"version": "0.1"
+		,"termsofService": "http://www.wunderground.com/weather/api/d/terms.html"
+		,"features": {
+		"alerts": 1
+		}
+	}
+		,"query_zone": "051",
+	"alerts": [
+		{
+		"type": "WAT",
+		"description": "Coastal Hazard Statement",
+		"date": "5:19 am EDT on July 26, 2013",
+		"date_epoch": "1374830340",
+		"expires": "8:00 PM EDT on July 26, 2013",
+		"expires_epoch": "1374883200",
+		"message": "\u000A...Rip current risk now in effect through this evening...\u000A\u000A* timing...through 8 PM today.\u000A\u000A* Impacts...more frequent rip currents may pull even strong \u000A swimmers out into deeper waters. \u000A\u000APrecautionary/preparedness actions...\u000A\u000AThere is a moderate risk of rip currents along the beaches of\u000APinellas...Hillsborough...Manatee...Sarasota...Charlotte and Lee\u000Acounties through this evening.\u000A\u000ARip currents are powerful channels of water flowing quickly away\u000Afrom shore...which occur most often at low spots or breaks in The\u000ASandbar and in the vicinity of structures such as groins...\u000Ajetties and piers. Heed the advice of lifeguards and the beach\u000Apatrol. Pay attention to flags and posted signs.\u000A\u000AIf you become caught in a rip current...do not panic. Remain calm\u000Aand begin to swim parallel to shore. Once you are away from the\u000Aforce of the rip current...begin to swim back to the beach. Do\u000Anot attempt to swim directly against a rip current. Even a strong\u000Aswimmer can become exhausted quickly.\u000A\u000A\u000A\u000A\u000AHttp://www.Weather.Gov/Tampa\u000A\u000A\u000A",
+		"phenomena": "RP",
+		"significance": "S",
+		"ZONES": [
+		{
+		"state":"FL",
+		"ZONE":"050"
+		}
+		,
+		{
+		"state":"FL",
+		"ZONE":"051"
+		}
+		,
+		{
+		"state":"FL",
+		"ZONE":"055"
+		}
+		,
+		{
+		"state":"FL",
+		"ZONE":"060"
+		}
+		,
+		{
+		"state":"FL",
+		"ZONE":"062"
+		}
+		,
+		{
+		"state":"FL",
+		"ZONE":"065"
+		}
+		],
+		"StormBased": {
+		}
+		}
+	]
+}
+]

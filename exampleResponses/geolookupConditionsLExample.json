@@ -1,0 +1,470 @@
+
+{
+	"response": {
+		"version": "0.1"
+		,"termsofService": "http://www.wunderground.com/weather/api/d/terms.html"
+		,"features": {
+		"geolookup": 1
+		,
+		"conditions": 1
+		}
+	}
+		,	"location": {
+		"type":"CITY",
+		"country":"US",
+		"country_iso3166":"US",
+		"country_name":"USA",
+		"state":"OH",
+		"city":"Aurora",
+		"tz_short":"EDT",
+		"tz_long":"America/New_York",
+		"lat":"41.31473923",
+		"lon":"-81.34320068",
+		"zip":"44202",
+		"magic":"1",
+		"wmo":"99999",
+		"l":"/q/zmw:44202.1.99999",
+		"requesturl":"US/OH/Aurora.html",
+		"wuiurl":"http://www.wunderground.com/US/OH/Aurora.html",
+		"nearby_weather_stations": {
+		"airport": {
+		"station": [
+		{ "city":"Ravenna", "state":"OH", "country":"US", "icao":"KPOV", "lat":"41.20999908", "lon":"-81.25000000" },
+		{ "city":"Cleveland Cuyahoga", "state":"OH", "country":"US", "icao":"KCGF", "lat":"41.56000137", "lon":"-81.48999786" },
+		{ "city":"Akron", "state":"OH", "country":"US", "icao":"KAKR", "lat":"41.04000092", "lon":"-81.47000122" },
+		{ "city":"Cleveland Burke", "state":"OH", "country":"US", "icao":"KBKL", "lat":"41.52000046", "lon":"-81.68000031" }
+		]
+		}
+		,
+		"pws": {
+		"station": [
+		{
+		"neighborhood":"",
+		"city":"Auburn",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHCHAGR6",
+		"lat":41.360806,
+		"lon":-81.269630,
+		"distance_km":7,
+		"distance_mi":4
+		},
+		{
+		"neighborhood":"",
+		"city":"Hudson",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHHUDSO3",
+		"lat":41.258209,
+		"lon":-81.420258,
+		"distance_km":8,
+		"distance_mi":5
+		},
+		{
+		"neighborhood":"",
+		"city":"Streetsboro",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHSTREE2",
+		"lat":41.220001,
+		"lon":-81.348335,
+		"distance_km":10,
+		"distance_mi":6
+		},
+		{
+		"neighborhood":"Auburn Township",
+		"city":"Chagrin Falls",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHCHAGR5",
+		"lat":41.385799,
+		"lon":-81.240524,
+		"distance_km":11,
+		"distance_mi":6
+		},
+		{
+		"neighborhood":"Snyder Rd",
+		"city":"South Russell",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHSOUTH9",
+		"lat":41.427631,
+		"lon":-81.307632,
+		"distance_km":12,
+		"distance_mi":7
+		},
+		{
+		"neighborhood":"South Russell Service Department",
+		"city":"South Russell",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHSOUTH1",
+		"lat":41.431370,
+		"lon":-81.338020,
+		"distance_km":12,
+		"distance_mi":7
+		},
+		{
+		"neighborhood":"Shalersville",
+		"city":"Mantua",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHMANTU3",
+		"lat":41.246151,
+		"lon":-81.211243,
+		"distance_km":13,
+		"distance_mi":8
+		},
+		{
+		"neighborhood":"Bell Street Pepper Patch",
+		"city":"Chagrin Falls",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHCHAGR7",
+		"lat":41.432472,
+		"lon":-81.383583,
+		"distance_km":13,
+		"distance_mi":8
+		},
+		{
+		"neighborhood":"OHDOT 172-US-422 @ Chagrin Blvd.",
+		"city":"Chagrin Falls",
+		"state":"OH",
+		"country":"US",
+		"id":"MOH162",
+		"lat":41.438801,
+		"lon":-81.406502,
+		"distance_km":14,
+		"distance_mi":8
+		},
+		{
+		"neighborhood":"",
+		"city":"Stow",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHSTOW1",
+		"lat":41.191429,
+		"lon":-81.416069,
+		"distance_km":15,
+		"distance_mi":9
+		},
+		{
+		"neighborhood":"Moreland Hills",
+		"city":"Moreland Hills",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHMOREL1",
+		"lat":41.443138,
+		"lon":-81.442787,
+		"distance_km":16,
+		"distance_mi":9
+		},
+		{
+		"neighborhood":"Eaton Estate",
+		"city":"Sagamore Hills",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHSAGAM2",
+		"lat":41.334644,
+		"lon":-81.547501,
+		"distance_km":17,
+		"distance_mi":10
+		},
+		{
+		"neighborhood":"APRSWXNET Orange OH US",
+		"city":"Chagrin Falls",
+		"state":"OH",
+		"country":"US",
+		"id":"MAP343",
+		"lat":41.441669,
+		"lon":-81.464333,
+		"distance_km":17,
+		"distance_mi":10
+		},
+		{
+		"neighborhood":"Kent Popped!",
+		"city":"Kent",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHKENT6",
+		"lat":41.157951,
+		"lon":-81.363541,
+		"distance_km":17,
+		"distance_mi":10
+		},
+		{
+		"neighborhood":"",
+		"city":"Downtown/Kent",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHKENT3",
+		"lat":41.155834,
+		"lon":-81.356667,
+		"distance_km":17,
+		"distance_mi":10
+		},
+		{
+		"neighborhood":"Black Horse",
+		"city":"Ravenna",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHRAVEN12",
+		"lat":41.161869,
+		"lon":-81.277451,
+		"distance_km":17,
+		"distance_mi":10
+		},
+		{
+		"neighborhood":"Jones Ave. 1",
+		"city":"Ravenna",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHRAVEN13",
+		"lat":41.163647,
+		"lon":-81.258400,
+		"distance_km":18,
+		"distance_mi":10
+		},
+		{
+		"neighborhood":"Kent State Geography",
+		"city":"Kent",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHKENT5",
+		"lat":41.150719,
+		"lon":-81.350266,
+		"distance_km":18,
+		"distance_mi":10
+		},
+		{
+		"neighborhood":"OHDOT 168-I-480 N @ Miles Rd.",
+		"city":"Cleveland",
+		"state":"OH",
+		"country":"US",
+		"id":"MOH158",
+		"lat":41.419102,
+		"lon":-81.513496,
+		"distance_km":18,
+		"distance_mi":11
+		},
+		{
+		"neighborhood":"Ravenna 1E",
+		"city":"Ravenna",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHRAVEN5",
+		"lat":41.159714,
+		"lon":-81.232010,
+		"distance_km":19,
+		"distance_mi":11
+		},
+		{
+		"neighborhood":"Ravenna TWP",
+		"city":"Ravenna",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHRAVEN19",
+		"lat":41.171227,
+		"lon":-81.207382,
+		"distance_km":19,
+		"distance_mi":11
+		},
+		{
+		"neighborhood":"Newbury",
+		"city":"Newbury",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHNEWBU2",
+		"lat":41.473816,
+		"lon":-81.226738,
+		"distance_km":20,
+		"distance_mi":12
+		},
+		{
+		"neighborhood":"Near Geauga Park Rookery",
+		"city":"Newbury",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHNEWBU1",
+		"lat":41.492928,
+		"lon":-81.288971,
+		"distance_km":20,
+		"distance_mi":12
+		},
+		{
+		"neighborhood":"Downtown",
+		"city":"Garrettsville",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHGARRE2",
+		"lat":41.284935,
+		"lon":-81.098892,
+		"distance_km":20,
+		"distance_mi":12
+		},
+		{
+		"neighborhood":"Northampton",
+		"city":"Cuyahoga Falls",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHCUYAH1",
+		"lat":41.162277,
+		"lon":-81.503746,
+		"distance_km":21,
+		"distance_mi":12
+		},
+		{
+		"neighborhood":"Chesterland Near Hawken Upper School",
+		"city":"Chesterland",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHCHEST2",
+		"lat":41.533512,
+		"lon":-81.375435,
+		"distance_km":24,
+		"distance_mi":14
+		},
+		{
+		"neighborhood":"",
+		"city":"Cuyahoga Falls",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHCUYAH3",
+		"lat":41.139938,
+		"lon":-81.522995,
+		"distance_km":24,
+		"distance_mi":14
+		},
+		{
+		"neighborhood":"APRSWXNET Shaker Heights OH US",
+		"city":"Shaker Heights",
+		"state":"OH",
+		"country":"US",
+		"id":"MAU629",
+		"lat":41.471001,
+		"lon":-81.557167,
+		"distance_km":24,
+		"distance_mi":14
+		},
+		{
+		"neighborhood":"Cuyahoga County Skywarn",
+		"city":"Shaker Heights",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHSHAKE3",
+		"lat":41.471031,
+		"lon":-81.557190,
+		"distance_km":24,
+		"distance_mi":14
+		},
+		{
+		"neighborhood":"OHDOT 171-I-77 @ SR-82",
+		"city":"Cleveland",
+		"state":"OH",
+		"country":"US",
+		"id":"MOH161",
+		"lat":41.307999,
+		"lon":-81.642502,
+		"distance_km":25,
+		"distance_mi":15
+		},
+		{
+		"neighborhood":"North Akron",
+		"city":"AKRON",
+		"state":"OH",
+		"country":"US",
+		"id":"KOHAKRON19",
+		"lat":41.119110,
+		"lon":-81.506943,
+		"distance_km":25,
+		"distance_mi":15
+		}
+		]
+		}
+		}
+	}
+		,	"current_observation": {
+		"image": {
+		"url":"http://icons-ak.wxug.com/graphics/wu2/logo_130x80.png",
+		"title":"Weather Underground",
+		"link":"http://www.wunderground.com"
+		},
+		"display_location": {
+		"full":"Aurora, OH",
+		"city":"Aurora",
+		"state":"OH",
+		"state_name":"Ohio",
+		"country":"US",
+		"country_iso3166":"US",
+		"zip":"44202",
+		"magic":"1",
+		"wmo":"99999",
+		"latitude":"41.31473923",
+		"longitude":"-81.34320068",
+		"elevation":"339.00000000"
+		},
+		"observation_location": {
+		"full":"Auburn, Ohio",
+		"city":"Auburn",
+		"state":"Ohio",
+		"country":"US",
+		"country_iso3166":"US",
+		"latitude":"41.360806",
+		"longitude":"-81.269630",
+		"elevation":"1160 ft"
+		},
+		"estimated": {
+		},
+		"station_id":"KOHCHAGR6",
+		"observation_time":"Last Updated on July 26, 9:15 AM EDT",
+		"observation_time_rfc822":"Fri, 26 Jul 2013 09:15:01 -0400",
+		"observation_epoch":"1374844501",
+		"local_time_rfc822":"Fri, 26 Jul 2013 09:15:49 -0400",
+		"local_epoch":"1374844549",
+		"local_tz_short":"EDT",
+		"local_tz_long":"America/New_York",
+		"local_tz_offset":"-0400",
+		"weather":"Clear",
+		"temperature_string":"68.5 F (20.3 C)",
+		"temp_f":68.5,
+		"temp_c":20.3,
+		"relative_humidity":"73%",
+		"wind_string":"Calm",
+		"wind_dir":"SW",
+		"wind_degrees":224,
+		"wind_mph":0.2,
+		"wind_gust_mph":"1.6",
+		"wind_kph":0.3,
+		"wind_gust_kph":"2.6",
+		"pressure_mb":"1020",
+		"pressure_in":"30.12",
+		"pressure_trend":"-",
+		"dewpoint_string":"60 F (15 C)",
+		"dewpoint_f":60,
+		"dewpoint_c":15,
+		"heat_index_string":"NA",
+		"heat_index_f":"NA",
+		"heat_index_c":"NA",
+		"windchill_string":"NA",
+		"windchill_f":"NA",
+		"windchill_c":"NA",
+		"feelslike_string":"68.5 F (20.3 C)",
+		"feelslike_f":"68.5",
+		"feelslike_c":"20.3",
+		"visibility_mi":"10.0",
+		"visibility_km":"16.1",
+		"solarradiation":"0",
+		"UV":"3","precip_1hr_string":"0.00 in ( 0 mm)",
+		"precip_1hr_in":"0.00",
+		"precip_1hr_metric":" 0",
+		"precip_today_string":"0.00 in (0 mm)",
+		"precip_today_in":"0.00",
+		"precip_today_metric":"0",
+		"icon":"clear",
+		"icon_url":"http://icons-ak.wxug.com/i/c/k/clear.gif",
+		"forecast_url":"http://www.wunderground.com/US/OH/Aurora.html",
+		"history_url":"http://www.wunderground.com/weatherstation/WXDailyHistory.asp?ID=KOHCHAGR6",
+		"ob_url":"http://www.wunderground.com/cgi-bin/findweather/getForecast?query=41.360806,-81.269630"
+	}
+}
+
