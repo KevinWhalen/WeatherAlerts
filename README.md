@@ -43,10 +43,12 @@ running job.)
 
 ---
 
-Weather Underground
+Weather Underground 
 http://www.wunderground.com/
-Licsense Terms
+
+Licsense Terms 
 http://www.wunderground.com/weather/api/d/terms.html
-Logo Usage Guide
+
+Logo Usage Guide 
 http://www.wunderground.com/weather/api/d/docs?d=resources/logo-usage-guide
 
