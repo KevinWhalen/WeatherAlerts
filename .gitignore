@@ -3,3 +3,6 @@ key
 
 # swap files
 *.swp
+
+#python bytecode
+*.pyc
