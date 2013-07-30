@@ -27,3 +27,23 @@ var alertCodeLookup = {
 	'PUB': 'Public Information Statement'
 };
 
+function severeWeatherAlert(){
+	// Load the alerts information file.
+	$.getJSON('info.json', function(data){
+		if (data != ""){
+			if (!document.getElementById("alertInformation")){
+				$("#alertBanner").append('<div id="alertInformation">alert</div>');
+			}
+		} else {
+			$("#alertBanner").empty();
+		}
+	});
+	/*
+	.done(function(){ console.log("success"); })
+	.fail(function(){ console.log("error"); })
+	.always(function(){ console.log("complete"); });
+	*/
+}
+
+function loadAlerts(){
+}

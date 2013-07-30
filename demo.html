@@ -31,7 +31,10 @@ As well as a simple radar weather map and links to their server weather watch.
 <script type="text/javascript" src="weatherAlerts.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	//$(window).resize(function(){});
 	// Run alert file check on a timer.
+	severeWeatherAlert();
+	window.setInterval("severeWeatherAlert()", 10000);
 });
 </script>
 </body>
