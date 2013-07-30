@@ -32,7 +32,7 @@ function severeWeatherAlert(){
 	$.getJSON('info.json', function(data){
 		if (data != ""){
 			if (!document.getElementById("alertInformation")){
-				$("#alertBanner").append('<div id="alertInformation">alert</div>');
+				$("#alertBanner").append('<div id="alertInformation">Alert</div>');
 			}
 		} else {
 			$("#alertBanner").empty();
