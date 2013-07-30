@@ -69,8 +69,8 @@ def alertCheck(alertId):
       '","date":"' + a['date'] + \
       '","expires":"' + a['expires'] + \
       '","description":"' + a['description'] + \
-      '","message":"' + a['message'] + \
-      '","phenomena":"' + a['phenomena'] + \
+      '","message":' + json.dumps(a['message']) + \
+      ',"phenomena":"' + a['phenomena'] + \
       '","significance":"' + a['significance'] + '"}'
     return newAlert
 
