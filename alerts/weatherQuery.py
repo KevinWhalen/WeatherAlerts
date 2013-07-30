@@ -16,7 +16,7 @@ dev = True
 
 #-------------------------------------------------------------------------------
 # File locations
-alertFile = '/var/www/html/alerts/info.json'
+alertFile = '/var/www/html/dev/info.json'
 keyFile = '../key'
 key = ""
 #-------------------------------------------------------------------------------
@@ -153,8 +153,9 @@ def main():
     if (datetime.today() - alertTimer) >= expireInterval:
       expirationTimer = datetime.today()
       expirationCheck()
+"""
 
 
 if __name__=="__main__":
-  main()
-"""
+  alertCheck(0)
+  #main()
