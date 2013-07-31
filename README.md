@@ -35,11 +35,18 @@ demonstration of use.
 
 Write access will be needed for info.json. 
 
-The alerts directory should be placed elsewhere and the retrieval script could 
-be run as a scheduled job (ie. with cron) based on prefered accuracy and API 
-subscription. 
-(Or I may write a timer into it, in which case it could be left as an always 
-running job.)
+The alerts directory should be placed elsewhere and executed as an always 
+running job. So on linux something like: 
+
+nohup ~/processes/weatherQuery.py >> ~/logs/weatherAlerts.log 2>&1 &
+
+The script weatherQuery.py contains the variables and controls that need to be 
+configured in order to interact with the Weather Underground API and this alert 
+system's files. 
+
+(The retrieval script could be also run as a scheduled job (ie. with cron) 
+based on prefered accuracy and API subscription. Just set it call the alert and 
+exiration check functions instead of the main function.) 
 
 ---
 
