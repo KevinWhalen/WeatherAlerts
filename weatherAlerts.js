@@ -31,10 +31,14 @@ function severeWeatherAlert(){
 	// Load the alerts information file.
 	$.getJSON('info.json', function(data){
 		if (data != ""){
+			$("#alertBanner").slideDown();
 			displayAlertHeader(data);
 		} else {
+			$("#alertBanner").hide();
 			$("#alertBanner").empty();
 		}
+	}).fail(function(){
+		$("#alertBanner").hide();
 	});
 }
 
@@ -55,7 +59,7 @@ function appendAlertInformation(details){
 	if (!document.getElementById("alertInformation")){
 		var alertInfo = "";
 		$.each(details, function(idx, record){
-			alertInfo = "<h4>" + "location"+/*record['location'] +*/ " - " 
+			alertInfo = "<h4>" + "Ohio"+/*record['location'] +*/ " - " 
 				+ record['description'] + " - Until: " + record['expires'] 
 				+ "</h4>" + "<p>Starting at " + record['date'] 
 				+ " : <br />" + record['message'] + "</p><p>Type: " 
