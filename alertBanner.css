@@ -3,6 +3,7 @@
 */
 
 #alertBanner {
+	color: darkred;
 	background-color: lightpink;
 	border-style: solid;
 	border-width: 1px;
@@ -15,9 +16,29 @@
 	width: 95%;
 }
 
-#alertInformation {
-	color: darkred;
+#alertHeader {
 	font-weight: bold;
 	font-variant:small-caps;
 	text-align: center;
+}
+
+.alertInformation {
+}
+
+#expandAlertHeader, 
+#minimizeAlertInformation {
+	width: 100%;
+	text-align: right;
+	font-size: 8pt;
+	height: 16pt;
+}
+
+#alertFooter {
+	text-align: left;
+	float: left;
+	font-size: 14pt;
+}
+
+.alertDivider {
+	width: 80%;
 }

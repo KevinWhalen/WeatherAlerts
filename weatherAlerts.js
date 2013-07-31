@@ -31,18 +31,58 @@ function severeWeatherAlert(){
 	// Load the alerts information file.
 	$.getJSON('info.json', function(data){
 		if (data != ""){
-			if (!document.getElementById("alertInformation")){
-				$("#alertBanner").append('<div id="alertInformation">Alert</div>');
-			}
+			displayAlertHeader(data);
 		} else {
 			$("#alertBanner").empty();
 		}
 	});
-	/*
-	.done(function(){ console.log("success"); })
-	.fail(function(){ console.log("error"); })
-	.always(function(){ console.log("complete"); });
-	*/
+}
+
+function displayAlertHeader(data){
+	if (!document.getElementById("alertHeader")){
+		var header = "<h3>Severe Weather Alert</h3>";
+		$('#alertBanner')
+			.append('<div id="alertHeader">' + header + '</div>')
+			.append('<div id="expandAlertHeader">[Click To Expand]</div>')
+			.click(function(){
+				$('#expandAlertHeader').hide();
+				appendAlertInformation(data);
+			});
+	}
+}
+
+function appendAlertInformation(details){
+	if (!document.getElementById("alertInformation")){
+		var alertInfo = "";
+		$.each(details, function(idx, record){
+			alertInfo = "<h4>" + "location"+/*record['location'] +*/ " - " 
+				+ record['description'] + " - Until: " + record['expires'] 
+				+ "</h4>" + "<p>Starting at " + record['date'] 
+				+ " : <br />" + record['message'] + "</p><p>Type: " 
+				+ record['type'] + " | Phenomena: " + record['phenomena'] 
+				+ " | Significance: " + record['significance'] + "</p>";
+			$('#alertBanner')
+				.append('<div class="alertInformation">' + alertInfo + '</div>')
+				.slideDown(400, function(){
+					$('#alertBanner').append('<hr class="alertDivider" />')
+				});
+		});
+		/* Minimum image size allowed by Weather Underground is 126px */
+		$('#alertBanner')
+			.append('<div id="minimizeAlertInformation"><div '
+			+ 'id="alertFooter">For more information go to '
+			+ '<a href="http://www.wunderground.com/severe.asp?'
+			+ 'apiref=b7583f58544ad7f7" target="_blank">'
+			+ '<img width="150px" alt="Weather Underground" '
+			+ 'title="US Severe Weather Map" src="'
+			+ 'http://icons.wxug.com/logos/PNG/wundergroundLogo_4c_horz.png" '
+			+ '/></a></div>[Click To Hide]</div>')
+			.click(function(){
+				$('#alertBanner').empty();
+				displayAlertHeader(details);
+			})
+			.slideDown();
+	}
 }
 
 function loadAlerts(){
