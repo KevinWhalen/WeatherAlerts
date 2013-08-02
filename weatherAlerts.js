@@ -23,6 +23,7 @@ function severeWeatherAlert(){
 	}).fail(function(){
 		// Reset the alert banner
 		$("#alertBanner").hide();
+		$("#alertBanner").off('click');
 		$("#alertBanner").empty();
 	});
 }
@@ -37,15 +38,9 @@ function displayAlertHeader(data){
 		$('#alertBanner')
 			.click(function(){
 				$('#expandAlertHeader').hide();
-				//$("#alertBanner").off('click');
 				appendAlertInformation(data);
 			});
 	}
-	/*
-	if ($("#alertBanner").is(':visible')){
-		appendAlertInformation(data);
-	}
-	*/
 }
 
 
