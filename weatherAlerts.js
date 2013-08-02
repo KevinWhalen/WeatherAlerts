@@ -2,12 +2,21 @@
 // For now, locations will be hardcoded in for Cleveland.
 
 
+// Remove once record['location'] is implemented.
+loc = "Ohio";
+
+
+// Turns the alert banner on or off.
 function severeWeatherAlert(){
 	// Load the alerts information file.
 	$.getJSON('info.json', function(data){
-		if (data != ""){
-			if (!($("#alertBanner").is(':visible'))){
+		if (data != ""){// && (data != old && $("#alertBanner").is(':visible')))
+			if ($("#alertBanner").is(':hidden')){
 				$("#alertBanner").slideDown();
+			}
+			if (document.getElementById("minimizeAlertInformation")){
+				//clearAlerts();
+				//appendAlertInformation(data);
 			}
 			displayAlertHeader(data);
 		/*
@@ -31,16 +40,11 @@ function severeWeatherAlert(){
 
 
 function displayAlertHeader(data){
+	var header = "<h3>Severe Weather Alert</h3>";
 	if (!document.getElementById("alertHeader")){
-		var header = "<h3>Severe Weather Alert</h3>";
 		$('#alertBanner')
 			.append('<div id="alertHeader">' + header + '</div>')
-			.append('<div id="expandAlertHeader">[Click To Expand]</div>')
-			.click(function(){
-				$('#expandAlertHeader').hide();
-				appendAlertInformation(data);
-			});
-	} else {
+			.append('<div id="expandAlertHeader">[Click To Expand]</div>');
 		$('#alertBanner')
 			.click(function(){
 				$('#expandAlertHeader').hide();
@@ -52,51 +56,57 @@ function displayAlertHeader(data){
 
 
 function appendAlertInformation(details){
-	//if (!document.getElementById("alertInformation")){
-		var alertInfo = "";
-		$.each(details, function(idx, record){
-			alertInfo = "<h4>" + "Ohio"+/*record['location'] +*/ " - " 
-				+ record['description'] + " - Until: " + record['expires'] 
-				+ "</h4>" + "<p>Starting at " + record['date'] 
-				+ " : <br />" + record['message'] + "</p><p>Type: " 
-				+ record['type'] + " | Phenomena: " + record['phenomena'] 
-				+ " | Significance: " + record['significance'] + "</p>";
-			$('#alertBanner')
-				.append('<div class="alertInformation">' + alertInfo + '</div>')
-				.slideDown(400, function(){
-					$('#alertBanner').append('<hr class="alertDivider" />')
-				});
-		});
-		/* Minimum image size allowed by Weather Underground is 126px */
+	if (document.getElementById("minimizeAlertInformation")){
+		clearAlerts();
+		/*
+		$('.alertInformation').remove();
+		$('.alertDivider').remove();
+		$('#minimizeAlertInformation').remove();
+		*/
+	}
+	var alertInfo = "";
+	$.each(details, function(idx, record){
+		alertInfo = "<h4>" + loc /*record['location']*/ + " - " 
+			+ record['description'] + " - Until: " + record['expires'] 
+			+ "</h4>" + "<p>Starting at " + record['date'] 
+			+ " : <br />" + record['message'] + "</p><p>Type: " 
+			+ record['type'] + " | Phenomena: " + record['phenomena'] 
+			+ " | Significance: " + record['significance'] + "</p>";
 		$('#alertBanner')
-			//.append('<div class="minimizeAlertInformation"><div '
-			.append('<div id="minimizeAlertInformation"><div '
-			+ 'id="alertFooter">For more information go to '
-			+ '<a href="http://www.wunderground.com/severe.asp?'
-			+ 'apiref=b7583f58544ad7f7" target="_blank">'
-			+ '<img width="150px" alt="Weather Underground" '
-			+ 'title="US Severe Weather Map" src="'
-			+ 'http://icons.wxug.com/logos/PNG/wundergroundLogo_4c_horz.png" '
-			+ '/></a></div>[Click To Hide]</div>')
-			.click(function(){
-// In general... a lot of weird on-click behavior, not just with .remove()
-				$('#alertBanner').empty();
-				// Getting a lot of weird on-click behavior depending on where..
-				/*
-				$('.alertInformation').remove();
-				$('.alertDivider').remove();
-				// .remove() seems to work better with class selectors
-				$('.minimizeAlertInformation').remove();
-				*/
+			.append('<div class="alertInformation">' + alertInfo + '</div>')
+			.slideDown(400, function(){
+				$('#alertBanner').append('<hr class="alertDivider" />')
+			});
+	});
+	/* Minimum image size allowed by Weather Underground is 126px */
+	$('#alertBanner')
+		//.append('<div class="minimizeAlertInformation"><div '
+		.append('<div id="minimizeAlertInformation"><div '
+		+ 'id="alertFooter">For more information go to '
+		+ '<a href="http://www.wunderground.com/severe.asp?'
+		+ 'apiref=b7583f58544ad7f7" target="_blank">'
+		+ '<img width="150px" alt="Weather Underground" '
+		+ 'title="US Severe Weather Map" src="'
+		+ 'http://icons.wxug.com/logos/PNG/wundergroundLogo_4c_horz.png" '
+		+ '/></a></div>[Click To Hide]</div>')
+		.click(function(){
+			$('#alertBanner').empty();
+			//clearAlerts();
 
-				$('#expandAlertHeader').show();
-				// Clear click event handlers from banner
-				$("#alertBanner").off('click');
-				severeWeatherAlert();
-				//displayAlertHeader(details);
-			})
-			.slideDown();
-	//}
+			// Clear click event handlers from banner
+			$("#alertBanner").off('click');
+
+			$('#expandAlertHeader').show();
+			severeWeatherAlert();
+		})
+		.slideDown();
+}
+
+
+function clearAlerts(){
+	$('.alertInformation').remove();
+	$('.alertDivider').remove();
+	$('#minimizeAlertInformation').remove();
 }
 
 
