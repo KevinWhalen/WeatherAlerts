@@ -1,6 +1,109 @@
 // Includes functions for fetching and displaying weather alert information.
 // For now, locations will be hardcoded in for Cleveland.
 
+
+function severeWeatherAlert(){
+	// Load the alerts information file.
+	$.getJSON('info.json', function(data){
+		if (data != ""){
+			if (!($("#alertBanner").is(':visible'))){
+				$("#alertBanner").slideDown();
+			}
+			displayAlertHeader(data);
+		/*
+			if ($("#alertBanner").is(':visible')){
+				appendAlertInformation(data);
+			} else {
+				$("#alertBanner").slideDown();
+				displayAlertHeader(data);
+			}
+		} else {
+			$("#alertBanner").hide();
+			$("#alertBanner").empty();
+		*/
+		}
+	}).fail(function(){
+		// Reset the alert banner
+		$("#alertBanner").hide();
+		$("#alertBanner").empty();
+	});
+}
+
+
+function displayAlertHeader(data){
+	if (!document.getElementById("alertHeader")){
+		var header = "<h3>Severe Weather Alert</h3>";
+		$('#alertBanner')
+			.append('<div id="alertHeader">' + header + '</div>')
+			.append('<div id="expandAlertHeader">[Click To Expand]</div>')
+			.click(function(){
+				$('#expandAlertHeader').hide();
+				appendAlertInformation(data);
+			});
+	} else {
+		$('#alertBanner')
+			.click(function(){
+				$('#expandAlertHeader').hide();
+				//$("#alertBanner").off('click');
+				appendAlertInformation(data);
+			});
+	}
+}
+
+
+function appendAlertInformation(details){
+	//if (!document.getElementById("alertInformation")){
+		var alertInfo = "";
+		$.each(details, function(idx, record){
+			alertInfo = "<h4>" + "Ohio"+/*record['location'] +*/ " - " 
+				+ record['description'] + " - Until: " + record['expires'] 
+				+ "</h4>" + "<p>Starting at " + record['date'] 
+				+ " : <br />" + record['message'] + "</p><p>Type: " 
+				+ record['type'] + " | Phenomena: " + record['phenomena'] 
+				+ " | Significance: " + record['significance'] + "</p>";
+			$('#alertBanner')
+				.append('<div class="alertInformation">' + alertInfo + '</div>')
+				.slideDown(400, function(){
+					$('#alertBanner').append('<hr class="alertDivider" />')
+				});
+		});
+		/* Minimum image size allowed by Weather Underground is 126px */
+		$('#alertBanner')
+			//.append('<div class="minimizeAlertInformation"><div '
+			.append('<div id="minimizeAlertInformation"><div '
+			+ 'id="alertFooter">For more information go to '
+			+ '<a href="http://www.wunderground.com/severe.asp?'
+			+ 'apiref=b7583f58544ad7f7" target="_blank">'
+			+ '<img width="150px" alt="Weather Underground" '
+			+ 'title="US Severe Weather Map" src="'
+			+ 'http://icons.wxug.com/logos/PNG/wundergroundLogo_4c_horz.png" '
+			+ '/></a></div>[Click To Hide]</div>')
+			.click(function(){
+// In general... a lot of weird on-click behavior, not just with .remove()
+				$('#alertBanner').empty();
+				// Getting a lot of weird on-click behavior depending on where..
+				/*
+				$('.alertInformation').remove();
+				$('.alertDivider').remove();
+				// .remove() seems to work better with class selectors
+				$('.minimizeAlertInformation').remove();
+				*/
+
+				$('#expandAlertHeader').show();
+				// Clear click event handlers from banner
+				$("#alertBanner").off('click');
+				severeWeatherAlert();
+				//displayAlertHeader(details);
+			})
+			.slideDown();
+	//}
+}
+
+
+function loadAlerts(){
+}
+
+
 // Alert type code reference
 // http://www.wunderground.com/weather/api/d/docs?d=data/alerts
 // ^(\w+) 	(.+)$
@@ -26,68 +129,3 @@ var alertCodeLookup = {
 	'REP': 'Public Reports',
 	'PUB': 'Public Information Statement'
 };
-
-function severeWeatherAlert(){
-	// Load the alerts information file.
-	$.getJSON('info.json', function(data){
-		if (data != ""){
-			$("#alertBanner").slideDown();
-			displayAlertHeader(data);
-		} else {
-			$("#alertBanner").hide();
-			$("#alertBanner").empty();
-		}
-	}).fail(function(){
-		$("#alertBanner").hide();
-	});
-}
-
-function displayAlertHeader(data){
-	if (!document.getElementById("alertHeader")){
-		var header = "<h3>Severe Weather Alert</h3>";
-		$('#alertBanner')
-			.append('<div id="alertHeader">' + header + '</div>')
-			.append('<div id="expandAlertHeader">[Click To Expand]</div>')
-			.click(function(){
-				$('#expandAlertHeader').hide();
-				appendAlertInformation(data);
-			});
-	}
-}
-
-function appendAlertInformation(details){
-	if (!document.getElementById("alertInformation")){
-		var alertInfo = "";
-		$.each(details, function(idx, record){
-			alertInfo = "<h4>" + "Ohio"+/*record['location'] +*/ " - " 
-				+ record['description'] + " - Until: " + record['expires'] 
-				+ "</h4>" + "<p>Starting at " + record['date'] 
-				+ " : <br />" + record['message'] + "</p><p>Type: " 
-				+ record['type'] + " | Phenomena: " + record['phenomena'] 
-				+ " | Significance: " + record['significance'] + "</p>";
-			$('#alertBanner')
-				.append('<div class="alertInformation">' + alertInfo + '</div>')
-				.slideDown(400, function(){
-					$('#alertBanner').append('<hr class="alertDivider" />')
-				});
-		});
-		/* Minimum image size allowed by Weather Underground is 126px */
-		$('#alertBanner')
-			.append('<div id="minimizeAlertInformation"><div '
-			+ 'id="alertFooter">For more information go to '
-			+ '<a href="http://www.wunderground.com/severe.asp?'
-			+ 'apiref=b7583f58544ad7f7" target="_blank">'
-			+ '<img width="150px" alt="Weather Underground" '
-			+ 'title="US Severe Weather Map" src="'
-			+ 'http://icons.wxug.com/logos/PNG/wundergroundLogo_4c_horz.png" '
-			+ '/></a></div>[Click To Hide]</div>')
-			.click(function(){
-				$('#alertBanner').empty();
-				displayAlertHeader(details);
-			})
-			.slideDown();
-	}
-}
-
-function loadAlerts(){
-}
