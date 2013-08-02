@@ -10,26 +10,15 @@ loc = "Ohio";
 function severeWeatherAlert(){
 	// Load the alerts information file.
 	$.getJSON('info.json', function(data){
-		if (data != ""){// && (data != old && $("#alertBanner").is(':visible')))
+		if (data != ""){
 			if ($("#alertBanner").is(':hidden')){
 				$("#alertBanner").slideDown();
 			}
 			if (document.getElementById("minimizeAlertInformation")){
-				//clearAlerts();
-				//appendAlertInformation(data);
+				clearAlerts();
+				appendAlertInformation(data);
 			}
 			displayAlertHeader(data);
-		/*
-			if ($("#alertBanner").is(':visible')){
-				appendAlertInformation(data);
-			} else {
-				$("#alertBanner").slideDown();
-				displayAlertHeader(data);
-			}
-		} else {
-			$("#alertBanner").hide();
-			$("#alertBanner").empty();
-		*/
 		}
 	}).fail(function(){
 		// Reset the alert banner
@@ -52,17 +41,17 @@ function displayAlertHeader(data){
 				appendAlertInformation(data);
 			});
 	}
+	/*
+	if ($("#alertBanner").is(':visible')){
+		appendAlertInformation(data);
+	}
+	*/
 }
 
 
 function appendAlertInformation(details){
 	if (document.getElementById("minimizeAlertInformation")){
 		clearAlerts();
-		/*
-		$('.alertInformation').remove();
-		$('.alertDivider').remove();
-		$('#minimizeAlertInformation').remove();
-		*/
 	}
 	var alertInfo = "";
 	$.each(details, function(idx, record){
@@ -80,7 +69,6 @@ function appendAlertInformation(details){
 	});
 	/* Minimum image size allowed by Weather Underground is 126px */
 	$('#alertBanner')
-		//.append('<div class="minimizeAlertInformation"><div '
 		.append('<div id="minimizeAlertInformation"><div '
 		+ 'id="alertFooter">For more information go to '
 		+ '<a href="http://www.wunderground.com/severe.asp?'
@@ -109,9 +97,6 @@ function clearAlerts(){
 	$('#minimizeAlertInformation').remove();
 }
 
-
-function loadAlerts(){
-}
 
 
 // Alert type code reference
