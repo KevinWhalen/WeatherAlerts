@@ -18,13 +18,12 @@ Information is polled for and stored every hour and a half by a python script
 on the back end. When a visitor of the website comes, javascript is used to 
 check the alert information file via a jQuery library AJAX request. 
 
-By using a flat file to store the alerts, transfer waste can be reduced by 
-leveraging the fact that most browsers check for changes to requested resources 
-before downloading them. A database request could send the same information to 
-every page the user visits. 
+Using a flat file to store the alerts is a simpler installation than using a 
+database and more portable than using websockets. This systems normal operating 
+conditions will store a tiny amount of information for a short period of time. 
 
-Checking the alert file is on a five minute timer to avoid having to coordinate 
-updates with the backend system. 
+Checking the alert file is on a timer to avoid having to coordinate updates 
+with the backend system. 
 
 ---
 
