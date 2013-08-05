@@ -2,10 +2,6 @@
 // For now, locations will be hardcoded in for Cleveland.
 
 
-// Remove once record['location'] is implemented.
-loc = "Ohio";
-
-
 // Turns the alert banner on or off.
 function severeWeatherAlert(){
 	// Load the alerts information file.
@@ -50,7 +46,7 @@ function appendAlertInformation(details){
 	}
 	var alertInfo = "";
 	$.each(details, function(idx, record){
-		alertInfo = "<h4>" + loc /*record['location']*/ + " - " 
+		alertInfo = "<h4>" + record['location'] + " - " 
 			+ record['description'] + " - Until: " + record['expires'] 
 			+ "</h4>" + "<p>Starting at " + record['date'] 
 			+ " : <br />" + record['message'] + "</p><p>Type: " 
