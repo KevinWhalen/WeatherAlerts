@@ -32,10 +32,10 @@ with the backend system.
 The main files of this project can be copied to a webserver directory for a 
 demonstration of use. 
 
-> alertBanner.css
-> demo.html
-> info.json
-> weatherAlerts.js
+> alertBanner.css  
+> demo.html  
+> info.json  
+> weatherAlerts.js  
 
 Write access will be needed for info.json. 
 
