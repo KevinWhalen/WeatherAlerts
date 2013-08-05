@@ -16,16 +16,15 @@
 #     if there is an alert it calls storeAlert
 #       which appends the alert to the information JSON array
 
-# Should it load that file everytime?
-# Doing this as an always running job or a scheduled task?
-#... I'm thinking just have it infinitly loop is a background process..
-
-
-# TODO:
 ###Because of the developer rate limit and the current rate model planned this 
-###would not be able to make requests for multiple locations without blocking. 
+###would not be able to make requests for multiple locations. 
 # Finish adding a function that handles calling alertCheck() for every location.
 #     Loads the locations...
+
+# TODO:
+# Check if an alert in a response already exists in the information file before
+# inserting it. Investigate why this problem did not occur with the development
+# example data file. 
 
 
 import urllib2
@@ -37,8 +36,8 @@ from datetime import datetime, date, time, timedelta, tzinfo
 #from printKeys import printKeys
 
 # Toggle weather or not to use the developmental responses.
-dev = False
 dev = True
+dev = False
 
 
 #===============================================================================
@@ -46,6 +45,10 @@ dev = True
 alertFile = '/var/www/html/dev/info.json'
 keyFile = '../key'
 key = ""
+loc = "Cleveland"
+locQ = '/q/zmw:44101.1.99999'
+locQ = '/q/zmw:73101.1.99999'
+#http://autocomplete.wunderground.com/aq?query=LOCATION&c=US
 #===============================================================================
 
 
@@ -56,7 +59,7 @@ def timestamp():
 print timestamp() + " Alert monitoring system started."
 
 
-def alertCheck(alertId):#, loc, locQ):
+def alertCheck(alertId, loc, locQ):
   if os.path.isfile(keyFile) and os.path.getsize(keyFile) > 0:
     try:
       with open(keyFile, 'r') as f:
@@ -72,8 +75,7 @@ def alertCheck(alertId):#, loc, locQ):
   json_string = ""
   if key != "" and (not dev):
     try:
-      response = urllib2.urlopen('http://api.wunderground.com/api/' + str(key) + '/geolookup/conditions/q/zmw:44202.1.99999.json')
-#      response = urllib2.urlopen('http://api.wunderground.com/api/' + str(key) + '/alert' + locQ +  '.json')
+      response = urllib2.urlopen('http://api.wunderground.com/api/' + str(key) + '/alerts' + locQ +  '.json')
       json_string = response.read()
       response.close()
     except:
@@ -111,30 +113,31 @@ def alertCheck(alertId):#, loc, locQ):
   if json_string != "":
     cleaned_json_string = json_string.replace('/','')
     r = json.loads(cleaned_json_string) #parse json into a python object
-    if os.path.isfile(alertFile) and os.path.getsize(alertFile) > 0:
-      try:
-        with open(alertFile, 'r+') as f:
-          f.seek(-2, 2) # current: 0, begining: 1, end: 2
-          #print timestamp() + " Alert count: " + str(r['response']['features']['alerts'])
-          for a in r['alerts']:
-            newAlert = formatJsonAlert(a)
-            f.write(',\n' + newAlert)
-          f.write(']\n')
-      except IOError:
-        print timestamp() + " Error with information file"
-        return
-    elif not os.path.isfile(alertFile) or os.path.getsize(alertFile) == 0:
-      try:
-        with open(alertFile, 'w+') as f:
-          f.write('[')
-          for a in r['alerts']:
-            newAlert = formatJsonAlert(a)
-            f.write(newAlert + ',\n')
-          f.seek(-2, 2) # Remove trailing comma and newline character
-          f.write(']\n')
-      except IOError:
-        print timestamp() + "Error with information file"
-        return
+    if 'error' not in r and len(r['alerts']) > 0:
+      if os.path.isfile(alertFile) and os.path.getsize(alertFile) > 0:
+        try:
+          with open(alertFile, 'r+') as f:
+            f.seek(-2, 2) # current: 0, begining: 1, end: 2
+            #print timestamp() + " Alert count: " + str(r['response']['features']['alerts'])
+            for a in r['alerts']:
+              newAlert = formatJsonAlert(a)
+              f.write(',\n' + newAlert)
+            f.write(']\n')
+        except IOError:
+          print timestamp() + " Error with information file"
+          return
+      elif not os.path.isfile(alertFile) or os.path.getsize(alertFile) == 0:
+        try:
+          with open(alertFile, 'w+') as f:
+            f.write('[')
+            for a in r['alerts']:
+              newAlert = formatJsonAlert(a)
+              f.write(newAlert + ',\n')
+            f.seek(-2, 2) # Remove trailing comma and newline character
+            f.write(']\n')
+        except IOError:
+          print timestamp() + "Error with information file"
+          return
 
 
 def expirationCheck():
@@ -176,10 +179,10 @@ def main():
   # Time interval configurations.
   startTime = datetime.today()
   # 1.5 hours == 90 minutes == 5400 seconds
-  alertInterval = timedelta(minutes=1)#hours=1.5)
+  alertInterval = timedelta(seconds=30)#hours=1.5)
   alertTimer = startTime - alertInterval
   # 5 minutes == 300 seconds, 20 minutes == 1200 seconds
-  expireInterval = timedelta(minutes=2)
+  expireInterval = timedelta(minutes=1.25)
   expirationTimer = startTime - expireInterval
 
   # Javascript safe, unique identification
@@ -189,7 +192,7 @@ def main():
   while True == True:
     if (datetime.today() - expirationTimer) >= expireInterval:
       expirationTimer = datetime.today()
-      print timestamp() + " Expiration check running"# for " + location
+      #print timestamp() + " Expiration check running"# for " + location
       try:
         expirationCheck()
       except:
@@ -197,9 +200,9 @@ def main():
     if (datetime.today() - alertTimer) >= alertInterval:
       alertTimer = datetime.today()
 # Eventually may add a loop to handle finding alerts for multiple locations. 
-      print timestamp() + " Alert check running"# for " + location
+      #print timestamp() + " Alert check running"# for " + loc
       try:
-        alertCheck(alertId)
+        alertCheck(alertId, loc, locQ)
       except:
         print timestamp() + " Error with alert check."
 
